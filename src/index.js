@@ -41,13 +41,14 @@ function markupForList(data) {
 }
 
 function markupForCountry(data) {
+  const language = Object.values(data[0].languages);
   const markupCountry = `<div class = 'country'>
                   <img src='${data[0].flags.svg}'/>
                       <div class ='country-body'>
           <h2>${data[0].name.official}</h2>
           <p><b>Capital: </b>${data[0].capital}</p>
           <p><b>Population:</b>${data[0].population.toLocaleString()}</p>
-          <p><b>Languages:</b>${data[0].languages}</p>
+          <p><b>Languages:</b>${language.join(', ')}</p>
           </div>
       </div>
       `;
