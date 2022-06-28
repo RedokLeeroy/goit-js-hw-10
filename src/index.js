@@ -19,12 +19,13 @@ referens.inputB.addEventListener(
 function hadndlerInput(event) {
   event.preventDefault();
   const target = event.target.value.trim();
+  if (target === '') {
+    Notiflix.Notify.failure('There is no country with that name');
+  }
   fetchCountries(target)
     .then(data => countriesData(data))
     .catch(error => {
-      if (target !== '') {
-        Notiflix.Notify.failure('There is no country with that name');
-      }
+      Notiflix.Notify.failure('There is no country with that name');
     });
 }
 
