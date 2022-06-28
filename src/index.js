@@ -60,6 +60,7 @@ function countriesData(data) {
     referens.countryList.innerHTML = '';
     Notiflix.Notify.info('YOU PICKED THE WRONG HOUSE FOOL');
   } else if (data.length > 1 && data.length <= 10) {
+    console.log(data.length);
     referens.countryList.innerHTML = '';
     referens.info.innerHTML = '';
     markupForList(data);
