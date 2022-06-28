@@ -59,7 +59,7 @@ function markupForCountry(data) {
 function countriesData(data) {
   if (data.length > 10) {
     referens.countryList.innerHTML = '';
-    Notiflix.Notify.info('YOU PICKED THE WRONG HOUSE FOOL');
+    Notiflix.Notify.info('You need to type more specific name');
   } else if (data.length > 1 && data.length <= 10) {
     console.log(data.length);
     referens.countryList.innerHTML = '';
