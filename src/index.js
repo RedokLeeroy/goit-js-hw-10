@@ -30,7 +30,7 @@ function hadndlerInput(event) {
 }
 
 function markupForList(data) {
-  markupList = data
+  const markupList = data
     .map(elem => {
       return `<li class="country">
     <img src="${elem.flags.svg}" /> 

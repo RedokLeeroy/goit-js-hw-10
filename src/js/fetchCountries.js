@@ -5,7 +5,12 @@ const refs = {
 
 export default function fetchCountries(name) {
   const data = fetch(`${refs.baseURL}name/${name}?fields=${refs.param}`).then(
-    response => response.json()
+    response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    }
   );
   return data;
 }
