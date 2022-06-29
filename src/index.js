@@ -22,7 +22,9 @@ function hadndlerInput(event) {
   fetchCountries(target)
     .then(data => countriesData(data))
     .catch(error => {
-      Notiflix.Notify.failure('There is no country with that name');
+      if (data.hits.length === 0) {
+        Notiflix.Notify.failure('There is no country with that name');
+      }
     });
 }
 
@@ -58,7 +60,6 @@ function countriesData(data) {
     referens.countryList.innerHTML = '';
     Notiflix.Notify.info('You need to type more specific name');
   } else if (data.length > 1 && data.length <= 10) {
-    console.log(data.length);
     referens.countryList.innerHTML = '';
     referens.info.innerHTML = '';
     markupForList(data);
